@@ -35,14 +35,14 @@ object Main extends App {
     val Array(v, e, r, c, x) = in.nextLine().split(" ").map(_.toInt)
 
     // VIDEOS
-    val videos = for (_ <- 0 to v) yield new Video( in.nextInt() )
+    val videos = for (_ <- 0 until v) yield new Video( in.nextInt() )
 
     // ENDPOINTS
-    val endpoints = for (endpoint <- 0 to e) yield {
+    val endpoints = for (endpoint <- 0 until e) yield {
       val datacenterLatency = in.nextInt
       val numberOfCaches = in.nextInt
 
-      val latenciesToCaches = (for (cache <- 0 to numberOfCaches) yield {
+      val latenciesToCaches = (for (cache <- 0 until numberOfCaches) yield {
         val cacheIndex = in.nextInt
         val latencyEndpointToCache = in.nextInt
         (cacheIndex, latencyEndpointToCache)
@@ -52,8 +52,8 @@ object Main extends App {
     }
 
     // REQUEST DESCRIPTORS
-    val requestDescriptors = for( descriptor <- 0 to r) yield{
-      val (requests, video, endpoint) = ( in.nextInt, in.nextInt, in.nextInt )
+    val requestDescriptors = for( descriptor <- 0 until r) yield{
+      val (video, endpoint, requests) = ( in.nextInt, in.nextInt, in.nextInt )
       RequestDescriptor( requests, video, endpoint )
     }
 
