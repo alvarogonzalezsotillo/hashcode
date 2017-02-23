@@ -57,7 +57,7 @@ object Main extends App {
       RequestDescriptor( requests, video, endpoint )
     }
 
-    Data( x, videos, endpoints, requestDescriptors )
+    Data(c, x, videos, endpoints, requestDescriptors )
   }
 
   case class RequestDescriptor( requests: Int, video: Int, endPoint: Int )
@@ -68,7 +68,8 @@ object Main extends App {
     def latencyToCache(index: Int) = latenciesToCaches(index)
   }
 
-  case class Data( cacheSize: Int,
+  case class Data( caches: Int,
+                   cacheSize: Int,
                    videos: IndexedSeq[Video],
                    endpoints: IndexedSeq[Endpoint],
                    requestDescriptors: IndexedSeq[RequestDescriptor] )
