@@ -66,6 +66,8 @@ object Main extends App {
 
   case class Endpoint(datacenterLantency: Int, latenciesToCaches: Map[Int, Int]) {
     def latencyToCache(index: Int) = latenciesToCaches(index)
+    lazy val sortedCachesIndexes =
+      latenciesToCaches.keys.toSeq.sortWith((a,b) => latenciesToCaches(a) < latenciesToCaches(b))
   }
 
   case class Data( caches: Int,
