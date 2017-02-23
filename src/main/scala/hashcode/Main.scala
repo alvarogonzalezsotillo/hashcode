@@ -60,7 +60,7 @@ object Main extends App {
     Data( x, videos, endpoints, requestDescriptors )
   }
 
-  case class RequestDescriptor( request: Int, video: Int, endPoint: Int )
+  case class RequestDescriptor( requests: Int, video: Int, endPoint: Int )
 
   case class Video(size: Int)
 
